@@ -21,13 +21,6 @@ namespace WebApplicationApp.Controllers
             return View();
         }
 
-        public IActionResult RenderPartialView(string viewName)
-        {
-            return View(viewName);
-        }
-
-
-
         public IActionResult Expenses()
         {
             List<Expense> allExpenses = _context.Expenses.ToList();
@@ -69,13 +62,13 @@ namespace WebApplicationApp.Controllers
                 _context.Expenses.Update(formData);
             }
             _context.SaveChanges();
+
+
             return RedirectToAction("Expenses");
         }
 
-        public IActionResult ContactInfo()
+        public IActionResult Privacy()
         {
-            // Redirect to /Home/Index#contactinfo
-            //return RedirectToAction("Index","Home",null,"#contactinfo");
             return View();
         }
 
