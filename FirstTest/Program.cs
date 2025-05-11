@@ -1,4 +1,7 @@
-namespace FirstTest
+using Microsoft.EntityFrameworkCore;
+using WebApplicationApp.Models;
+
+namespace WebApplicationApp
 {
     public class Program
     {
@@ -8,6 +11,9 @@ namespace FirstTest
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<SpendSmartDbContext>(options =>
+                options.UseInMemoryDatabase("SpendSmartDb")
+            );
 
             var app = builder.Build();
 
